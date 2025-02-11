@@ -1,0 +1,60 @@
+.gradient-text {
+    background: linear-gradient(to right, #4F46E5, #818CF8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-heading {
+    font-size: 2.25rem;
+    font-weight: bold;
+    text-align: center;
+    color: #111827;
+    margin-bottom: 2rem;
+}
+
+.bio-text {
+    color: #4B5563;
+    line-height: 1.75;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+#carousel-inner {
+    display: flex;
+    width: 100%;
+    transform: translateX(0);
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    width: 100%;
+}
