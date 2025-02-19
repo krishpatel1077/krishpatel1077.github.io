@@ -37,6 +37,13 @@ const projects = [
       image: "website.jpg",
       tags: ["Next.js", "Web3.js", "JSON", "HTML/CSS"],
       link: "#"
+    },
+    {
+        title: "SystemVerilog Assertion (SVA) Library",
+        description: "A comprehensive, reusable library of SystemVerilog Assertions for digital verification. This library provides commonly used assertions for protocol verification, CDC checks, and timing validation.",
+        image: "sva.jpg",
+        tags: ["SystemVerilog", "Verification", "SVA", "Digital Design"],
+        link: "https://github.com/krishpatel1077/sv_assertion_library"
     }
   ];
 
