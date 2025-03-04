@@ -4,48 +4,48 @@ lucide.createIcons();
 // Project data
 const projects = [
     {
-      title: "Smart Wearable Soccer Vest",
-      description: "This smart wearable tracks biometrics in soccer athletes to prevent overexertion and optimize performance.",
-      image: "soccer.jpg",
-      tags: ["Python", "Hardware Design", "Data Analytics", "MATLAB"],
-      link: "https://digital.wpi.edu/concern/student_works/sj1395727?locale=en"
+        title: "Smart Wearable Soccer Vest",
+        description: "This smart wearable tracks biometrics in soccer athletes to prevent overexertion and optimize performance.",
+        image: "soccer.jpg",
+        tags: ["Python", "Hardware Design", "Data Analytics", "MATLAB"],
+        link: "https://digital.wpi.edu/concern/student_works/sj1395727?locale=en"
     },
     {
-      title: "Customer Transaction Prediction with Machine Learning",
-      description: "This project builds a binary classification model to predict whether a customer will make a transaction using Santander's anonymized behavioral data, enabling better customer engagement and retention strategies.",
-      image: "santander.jpg",
-      tags: ["Machine Learning", "Python", "Classification", "Predictive Modeling"],
-      link: "https://github.com/krishpatel1077/cs548projects/blob/main/cs548proj2.ipynb"
+        title: "Customer Transaction Prediction with Machine Learning",
+        description: "Binary classification model to predict customer transactions using Santander's anonymized behavioral data.",
+        image: "santander.jpg",
+        tags: ["Machine Learning", "Python", "Classification", "Predictive Modeling"],
+        link: "https://github.com/krishpatel1077/cs548projects/blob/main/cs548proj2.ipynb"
     },
     {
-      title: "AI-Powered Real Estate Price Prediction",
-      description: "Interactive dashboard for monitoring business metrics with real-time updates and customizable visualizations.",
-      image: "realestate.jpg",
-      tags: ["Python", "Machine Learning", "Regression", "xAI"],
-      link: "https://github.com/krishpatel1077/cs548projects/blob/main/cs548proj3.ipynb"
+        title: "AI-Powered Real Estate Price Prediction",
+        description: "Interactive dashboard for real estate price trends using AI and regression models.",
+        image: "realestate.jpg",
+        tags: ["Python", "Machine Learning", "Regression", "xAI"],
+        link: "https://github.com/krishpatel1077/cs548projects/blob/main/cs548proj3.ipynb"
     },
     {
-      title: "Graph-Based Link Prediction for Drug-Drug Interactions",
-      description: "This project applies graph machine learning to predict missing drug-drug interactions using the ogbl-ddi dataset, aiding in drug repurposing and toxicity prediction.",
-      image: "drug.jpg",
-      tags: ["Python", "GNNs", "Machine Learning", "Link Prediction"],
-      link: "https://github.com/krishpatel1077/cs548projects/blob/main/cs548proj4.ipynb"
+        title: "Graph-Based Link Prediction for Drug-Drug Interactions",
+        description: "Using graph ML to predict missing drug-drug interactions for improved drug repurposing.",
+        image: "drug.jpg",
+        tags: ["Python", "GNNs", "Machine Learning", "Link Prediction"],
+        link: "https://github.com/krishpatel1077/cs548projects/blob/main/cs548proj4.ipynb"
     },
     {
-      title: "My Personal Website!",
-      description: "You're already here, take a look around!.",
-      image: "website.jpg",
-      tags: ["Next.js", "Web3.js", "JSON", "HTML/CSS"],
-      link: "#"
+        title: "My Personal Website!",
+        description: "You're already here, take a look around!",
+        image: "website.jpg",
+        tags: ["Next.js", "Web3.js", "JSON", "HTML/CSS"],
+        link: "#"
     },
     {
         title: "SystemVerilog Assertion (SVA) Library",
-        description: "A comprehensive, reusable library of SystemVerilog Assertions for digital verification. This library provides commonly used assertions for protocol verification, CDC checks, and timing validation.",
+        description: "Reusable SVA library for digital verification and protocol compliance.",
         image: "sva.jpg",
         tags: ["SystemVerilog", "Verification", "SVA", "Digital Design"],
         link: "https://github.com/krishpatel1077/sv_assertion_library"
     }
-  ];
+];
 
 const skills = [
     "AWS", "Azure", "Verilog", "VHDL", "IDP", "SQL", 
