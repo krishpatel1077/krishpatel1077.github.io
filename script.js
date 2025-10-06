@@ -125,10 +125,30 @@ const education = [
     }
 ];
 
+// Projects Data
+const projects = [
+    {
+        title: "IBM watsonX Orchestrate Template",
+        description: "Complete template for developing IBM watsonX Orchestrate agents and tools with Application Development Kit (ADK). Provides a foundation for building enterprise AI workflows and automation tools.",
+        technologies: ["IBM watsonX", "Orchestrate", "ADK", "AI Workflows", "Enterprise Integration"],
+        github: "https://github.com/krishpatel1077/ibm-watsonx-orchestrate-template",
+        type: "Enterprise AI",
+        featured: true
+    },
+    {
+        title: "SEMP Requirements Debt Analyzer",
+        description: "AI agent for analyzing requirements debt in Systems Engineering Management Plans. Leverages machine learning to identify technical debt patterns and provide actionable insights for engineering teams.",
+        technologies: ["Python", "Machine Learning", "NLP", "Requirements Analysis", "Technical Debt"],
+        github: "https://github.com/krishpatel1077/semp-rq-debt-analyzer",
+        type: "AI Analysis",
+        featured: true
+    }
+];
+
 // Technical Skills organized by category
 const technicalSkills = {
     ml: ["Python", "PyTorch", "scikit-learn", "XGBoost", "Claude 4 Opus", "LLM Fine-tuning"],
-    cloud: ["AWS SageMaker", "AWS Bedrock", "AWS Lambda", "Azure ML", "MLOps"],
+    cloud: ["AWS SageMaker", "AWS Bedrock", "AWS Lambda", "IBM Cloud", "WatsonX Orchestrate", "Azure ML", "MLOps"],
     infrastructure: ["Docker", "Kubernetes", "Terraform", "CI/CD", "Git"],
     monitoring: ["Prometheus", "Grafana", "Observability", "Anomaly Detection"]
 };
@@ -227,6 +247,150 @@ function initializeTechnicalSkills() {
     document.getElementById('monitoring-skills').innerHTML = monitoringSkillsHTML;
 }
 
+// Initialize Projects Carousel
+function initializeProjectsCarousel() {
+    const projectsContainer = document.getElementById('projects-container');
+    const indicatorsContainer = document.getElementById('carousel-indicators');
+    const prevButton = document.getElementById('prev-project');
+    const nextButton = document.getElementById('next-project');
+    
+    let currentIndex = 0;
+    
+    // Generate project cards HTML
+    const projectsHTML = projects.map((project, index) => `
+        <div class="project-card flex-shrink-0 w-full">
+            <div class="max-w-4xl mx-auto">
+                <div class="project-card-inner">
+                    <div class="flex flex-col lg:flex-row items-start gap-8">
+                        <!-- Project Info -->
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="project-type-badge">${project.type}</span>
+                                ${project.featured ? '<span class="featured-badge"><i data-lucide="star" class="w-3 h-3 mr-1"></i>Featured</span>' : ''}
+                            </div>
+                            
+                            <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">${project.title}</h3>
+                            
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                ${project.description}
+                            </p>
+                            
+                            <!-- Technologies -->
+                            <div class="mb-8">
+                                <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Technologies</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${project.technologies.map(tech => `
+                                        <span class="tech-tag-project">${tech}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="${project.github}" target="_blank" class="btn-primary">
+                                    <i data-lucide="github" class="mr-2 w-4 h-4"></i>
+                                    View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Visual Element -->
+                        <div class="lg:w-80 flex-shrink-0">
+                            <div class="project-visual">
+                                <div class="code-preview">
+                                    <div class="code-header">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                        </div>
+                                        <span class="text-xs text-gray-400">${project.type}</span>
+                                    </div>
+                                    <div class="code-content">
+                                        <div class="code-line"><span class="text-purple-400">const</span> <span class="text-blue-400">${project.title.toLowerCase().replace(/\s+/g, '_')}</span> <span class="text-white">=</span> {</div>
+                                        <div class="code-line ml-4"><span class="text-green-400">name</span>: <span class="text-yellow-300">"${project.title}"</span>,</div>
+                                        <div class="code-line ml-4"><span class="text-green-400">status</span>: <span class="text-yellow-300">"production"</span>,</div>
+                                        <div class="code-line ml-4"><span class="text-green-400">tech</span>: <span class="text-yellow-300">[${project.technologies.slice(0, 2).map(t => `"${t}"`).join(', ')}]</span></div>
+                                        <div class="code-line">};</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    // Generate indicators HTML
+    const indicatorsHTML = projects.map((_, index) => `
+        <button class="carousel-indicator ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
+    `).join('');
+    
+    // Set HTML content
+    projectsContainer.innerHTML = projectsHTML;
+    indicatorsContainer.innerHTML = indicatorsHTML;
+    
+    // Navigation functions
+    function updateCarousel() {
+        const translateX = -currentIndex * 100;
+        projectsContainer.style.transform = `translateX(${translateX}%)`;
+        
+        // Update indicators
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Update button states
+        prevButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex === projects.length - 1;
+    }
+    
+    function nextProject() {
+        if (currentIndex < projects.length - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    }
+    
+    function prevProject() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+    
+    function goToProject(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+    
+    // Event listeners
+    prevButton.addEventListener('click', prevProject);
+    nextButton.addEventListener('click', nextProject);
+    
+    // Indicator click events
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.carousel-indicator')) {
+            const index = parseInt(e.target.dataset.index);
+            goToProject(index);
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevProject();
+        } else if (e.key === 'ArrowRight') {
+            nextProject();
+        }
+    });
+    
+    // Initialize carousel state
+    updateCarousel();
+}
+
 // Initialize Education Timeline
 function initializeEducation() {
     const educationTimeline = document.getElementById('education-timeline');
@@ -276,6 +440,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     initializeExperience();
+    initializeProjectsCarousel();
     initializeEducation();
     initializeCertifications();
     initializeTechnicalSkills();
